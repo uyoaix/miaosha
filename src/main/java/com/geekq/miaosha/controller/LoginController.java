@@ -1,5 +1,6 @@
 package com.geekq.miaosha.controller;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.geekq.miaosha.common.resultbean.ResultGeekQ;
 import com.geekq.miaosha.redis.redismanager.RedisLua;
 import com.geekq.miaosha.service.MiaoShaUserService;
@@ -25,7 +26,7 @@ public class LoginController {
 
     @Autowired
     private MiaoShaUserService userService;
-
+    @Reference
     @RequestMapping("/to_login")
     public String tologin(LoginVo loginVo, Model model) {
         logger.info(loginVo.toString());
